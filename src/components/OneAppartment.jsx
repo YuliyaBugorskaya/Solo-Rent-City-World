@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 export default function OneAppartment({ apartment, currentUserId, setAllApart }) {
   const [oneApart, setOneApart] = useState(apartment);
 
-  const [isEdit, setEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+
+  const [text, setText] = useState(apartment.description);
 
   const deleteHandler = async (e) => {
     e.preventDefault();
@@ -23,11 +25,37 @@ export default function OneAppartment({ apartment, currentUserId, setAllApart })
   };
 
   const changeEditHandler = () => {
-    setEdit(true);
+    setIsEdit(true);
   };
 
-  const saveEditHandler = async (e) => {
+  const changeHandler = (e) => {
+    setText(e.target.value);
+  };
+// не меняет в карточке, доделать !
 
+  const saveEditHandler = async () => {
+    const response = await fetch(`api/v1/editApart/${apartment.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ text }),
+
+    });
+    if (response.ok) {
+      const data = await response.json();
+
+      setAllApart((prev) => prev.map((el) => {
+        if (el.id === apartment.id) {
+          return ({
+            ...el, el_description: data.el_description,
+          });
+        }
+        return el;
+      }));
+      setIsEdit(false);
+      setText('');
+    }
   };
 
   return (
@@ -46,7 +74,7 @@ export default function OneAppartment({ apartment, currentUserId, setAllApart })
                   ? (
                     <>
                       <div className="input-group input-group-sm mt-3">
-                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                        <input onChange={changeHandler} type="text" value={text} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
                       </div>
 
                       <button onClick={saveEditHandler} type="button" className="btn btn-success">

@@ -41,4 +41,18 @@ router.delete('/delApart/:id', async (req, res) => {
   res.sendStatus(200);
 });
 
+router.patch('/editApart/:id', async (req, res) => {
+  const { id } = req.params;
+  const { text } = req.body;
+
+  try {
+    const currApart = await Apartmen.findByPk(id);
+    currApart.description = text;
+    await currApart.save();
+    res.json(currApart);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
 export default router;
