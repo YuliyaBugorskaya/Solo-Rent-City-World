@@ -1,12 +1,26 @@
 body {
-    
-        background: url('../css/images/Hero_-_The_bedroom_of_a_penthouse_apartment.jpeg');
-        /* background-size: contain;
+
+    background: url('../css/images/Hero_-_The_bedroom_of_a_penthouse_apartment.jpeg');
+    /* background-size: contain;
         background-position: top;
         background: cover; */
-    
+
 }
-h3{
+
+h3 {
     color: #D7DDE8;
     font-size: 270%;
+}
+
+h4 {
+    color: #D7DDE8;
+    font-size: 200%;
+}
+
+.form-reg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20%;
+    margin-left: -15%;
 }

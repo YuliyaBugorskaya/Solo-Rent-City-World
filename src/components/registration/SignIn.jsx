@@ -18,22 +18,24 @@ export default function SignIn() {
   };
 
   return (
-    <form onSubmit={submitHandler} className="mt-5 pt-2">
-      Sign In
-      <div className="mb-3">
+    <div className="form-reg">
+      <form onSubmit={submitHandler} className="mt-5 pt-2">
+        <h3>Sign In</h3>
+        <div className="mb-3">
 
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
-          <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
-          <input name="pass" type="password" className="form-control" id="exampleInputPassword1" />
-        </label>
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
-    </form>
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            <h4>Email address</h4>
+            <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            <h4>Password</h4>
+            <input name="pass" type="password" className="form-control" id="exampleInputPassword1" />
+          </label>
+        </div>
+        <button type="submit" className="btn btn-secondary">Submit</button>
+      </form>
+    </div>
   );
 }

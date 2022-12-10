@@ -26,6 +26,12 @@ export default function NavBar({ name }) {
                     <a className="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                   <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="/addapartment">Add Apartment</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="/apartments">Apartments</a>
+                  </li>
+                  <li className="nav-item">
                     <a className="nav-link" href="/registration/logout">Logout</a>
                   </li>
                 </>

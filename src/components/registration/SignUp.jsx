@@ -23,25 +23,28 @@ export default function SignUp() {
   };
 
   return (
+    <div className="form-reg">
     <form onSubmit={submitHandler} className="mt-5 pt-2">
-      Sign Up
+      <h3>Sign Up</h3>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
-          Name
+          <h4>Name</h4>
           <input onChange={(e) => changeHandler(e)} name="name" value={input.name} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </label>
         <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
+          <h4>Email address</h4>
           <input onChange={(e) => changeHandler(e)} name="email" value={input.email} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
+          <h4>Password</h4>
           <input onChange={(e) => changeHandler(e)} name="pass" value={input.pass} type="password" className="form-control" id="exampleInputPassword1" />
         </label>
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-secondary">Submit</button>
     </form>
+
+    </div>
   );
 }
